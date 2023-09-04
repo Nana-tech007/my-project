@@ -1,26 +1,26 @@
 pipeline {
-    agent none
+    
+    agent any
+
+    parameters {
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'excuteTests', defaultValue: true, description: '') 
+    }
     stages {
         stage('build') {
             steps {
-                script {
-                    echo "Building the application..."
-                }
+                 echo 'Building the application...'
             }
         }
         stage('test') {
             steps {
-                script {
-                    echo "Testing the application..."
-                }
+                    echo 'Testing the application...'
             }
         }
         stage('deploy') {
             steps {
-                script {
-                    echo "Deploying the application..."
-                }
+                    echo 'Deploying the application...'
             }
-        }
+        } 
     }
 }
